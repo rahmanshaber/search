@@ -1,7 +1,7 @@
 # Search
 An app of CoreApps family.Search is file finder app.
 
-<img src="Search.png" width="500">
+<img src="search.png" width="500">
 
 ### Download
 

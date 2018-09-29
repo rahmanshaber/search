@@ -2,7 +2,7 @@
 Name=Search
 Comment=Search is file finder app from CoreApps.
 Exec=search %F
-Icon=/usr/share/coreapps/icons/Search.svg
+Icon=/usr/share/coreapps/icons/search.svg
 Type=Application
 Categories=Utility;Qt;System;
 Terminal=false

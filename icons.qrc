@@ -2,6 +2,6 @@
     <qresource prefix="/">
         <file>icons/down.svg</file>
         <file>icons/folder.svg</file>
-        <file>icons/Search.svg</file>
+        <file>icons/search.svg</file>
     </qresource>
 </RCC>
