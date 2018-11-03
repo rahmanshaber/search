@@ -32,8 +32,8 @@ along with this program; if not, see {http://www.gnu.org/licenses/}. */
 #include <QFileDialog>
 #include <QTreeWidgetItem>
 
-#include <cprime/utilities.h>
-#include <cprime/globalfunctions.h>
+#include <cprime/themefunc.h>
+#include <cprime/appopenfunc.h>
 
 
 namespace Ui {

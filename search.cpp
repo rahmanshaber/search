@@ -23,11 +23,11 @@ search::search(QWidget *parent) :QWidget(parent),ui(new Ui::search)
     ui->setupUi(this);
 
     // set stylesheet from style.qrc
-    setStyleSheet(Utilities::getStylesheetFileContent(Utilities::StyleAppName::SearchStyle));
+    setStyleSheet(CPrime::ThemeFunc::getStyleSheetFileContent(CPrime::StyleTypeName::SearchStyle));
 
     // set window size
-    int x = static_cast<int>(Utilities::screensize().width()  * .8);
-    int y = static_cast<int>(Utilities::screensize().height()  * .7);
+    int x = static_cast<int>(CPrime::InfoFunc::screenSize().width()  * .8);
+    int y = static_cast<int>(CPrime::InfoFunc::screenSize().height()  * .7);
     this->resize(x, y);
     
     qRegisterMetaType<QVector<int>>("QVector<int>");
@@ -114,18 +114,18 @@ void search::loadSearchActivity()
     if (isActivityEnabled) {
         ui->activityList->clear();
         QStringList toplevel = searchActF.childGroups();
-        Utilities::sortDate(toplevel);
+        CPrime::SortFunc::sortDate(toplevel);
 
         foreach (QString group, toplevel) {
             QTreeWidgetItem *topTree = new QTreeWidgetItem;
 
-            QString groupL = Utilities::sentDateText(group);
+            QString groupL = CPrime::InfoFunc::sentDateText(group);
             topTree->setText(0, groupL);
 
             searchActF.beginGroup(group);
 
             QStringList keys = searchActF.childKeys();
-            Utilities::sortTime(keys, Utilities::sortOrder::DESCENDING, "hh.mm.ss");
+            CPrime::SortFunc::sortTime(keys, CPrime::SortOrder::Descending, "hh.mm.ss");
 
             foreach (QString key, keys) {
                 QTreeWidgetItem *child = new QTreeWidgetItem;
@@ -468,8 +468,7 @@ void search::on_results_itemDoubleClicked(QTableWidgetItem *item)
 {
     // Function from utilities.cpp
     QString path = ui->results->item(item->row(), 1)->text() + "/" + ui->results->item(item->row(), 0)->text();
-    qDebug()<< path;
-    GlobalFunc::appSelectionEngine(path,this);
+    CPrime::AppOpenFunc::appSelectionEngine(path,this);
 }
 
 void search::on_more_clicked(bool checked)
